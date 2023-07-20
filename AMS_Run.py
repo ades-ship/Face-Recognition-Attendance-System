@@ -163,7 +163,7 @@ def manually_fill():
                 global cursor
                 import csv
                 cursor.execute("select * from " + DB_table_name + ";")
-                csv_name = 'C:\\Users\\LENOVO\Downloads\\Face-Recognition-Attendance-System-main (1)\\Face-Recognition-Attendance-System-main\\Attendance\\Manually Attendance\\'+DB_table_name+'.csv'
+                csv_name = r'C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\Attendance\Manually Attendance\\'+DB_table_name+'.csv'
                 with open(csv_name, "w") as csv_file:
                     csv_writer = csv.writer(csv_file)
                     csv_writer.writerow(
@@ -219,7 +219,7 @@ def manually_fill():
             def attf():
                 import subprocess
                 subprocess.Popen(
-                    r'explorer /select,"C:\\Users\\LENOVO\Downloads\\Face-Recognition-Attendance-System-main (1)\\Face-Recognition-Attendance-System-main\Attendance\\Manually Attendance\\-------Check atttendance-------"')
+                    r'explorer /select,"C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\Attendance\Manually Attendance\\-------Check atttendance-------"')
 
             attf = tk.Button(MFW,  text="Check Sheets", command=attf, fg="white", bg="black",
                              width=12, height=1, activebackground="white", font=('times', 14, ' bold '))
@@ -305,7 +305,7 @@ def take_img():
 
 
             detector = cv2.CascadeClassifier(
-                'haarcascade_frontalface_default.xml')
+                r'C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\haarcascade_frontalface_default.xml')
             Enrollment = txt.get()
             Name = txt2.get()
             sampleNum = 0
@@ -327,7 +327,7 @@ def take_img():
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
 
-                elif sampleNum > 70:
+                elif sampleNum > 15:
                     break
 
 
@@ -337,7 +337,7 @@ def take_img():
             Date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
             Time = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
             row = [Enrollment, Name, Date, Time]
-            with open('StudentDetails\StudentDetails.csv', 'a+') as csvFile:
+            with open(r'C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\StudentDetails\StudentDetails.csv', 'a+') as csvFile:
                 writer = csv.writer(csvFile, delimiter=',')
                 writer.writerow(row)
                 csvFile.close()
@@ -370,7 +370,7 @@ def subjectchoose():
                         text=e, bg="red", fg="black", width=33, font=('times', 15, 'bold'))
                     Notifica.place(x=20, y=250)
 
-                harcascadePath = "haarcascade_frontalface_default.xml"
+                harcascadePath = r"C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\haarcascade_frontalface_default.xml"
                 faceCascade = cv2.CascadeClassifier(harcascadePath)
                 df = pd.read_csv("StudentDetails\StudentDetails.csv")
                 cam = cv2.VideoCapture(0)
@@ -453,7 +453,7 @@ def subjectchoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background='grey80')
-                cs = "C:\\Users\\LENOVO\\Downloads\\Face-Recognition-Attendance-System-main (1)\\Face-Recognition-Attendance-System-main\\" + fileName
+                cs = r"C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\\" + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -483,7 +483,7 @@ def subjectchoose():
         
         
         subprocess.Popen(
-            r'explorer /select,"C:\\Users\\LENOVO\\Downloads\\Face-Recognition-Attendance-System-main (1)\\Face-Recognition-Attendance-System-main\\Attendance\\-------Check atttendance-------"')
+            r'C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\Attendance\\-------Check atttendance-------"')
 
     attf = tk.Button(windo,  text="Check Sheets", command=Attf, fg="white", bg="black",
                      width=12, height=1, activebackground="white", font=('times', 14, ' bold '))
@@ -522,7 +522,7 @@ def admin_panel():
                 root.title("Student Details")
                 root.configure(background='grey80')
 
-                cs = 'C:\\Users\\LENOVO\\Downloads\\Face-Recognition-Attendance-System-main (1)\\Face-Recognition-Attendance-System-main\\StudentDetails\\StudentDetails.csv'
+                cs = r'C:\Users\Administrator\Desktop\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main (1)\Face-Recognition-Attendance-System-main\StudentDetails\StudentDetails.csv'
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
